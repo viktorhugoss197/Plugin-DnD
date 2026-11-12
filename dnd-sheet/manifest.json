@@ -1,7 +1,7 @@
 {
   "id": "dnd-sheet",
   "name": "Ficha de D&D",
-  "version": "1.14.0",
+  "version": "1.14.5",
   "minAppVersion": "1.4.0",
   "description": "Ficha de personagem de D&D 5e totalmente editável, com cálculo automático de modificadores e rolagem de dados.",
   "author": "Você",
