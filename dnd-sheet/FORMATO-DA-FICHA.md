@@ -16,7 +16,7 @@ Formato atual: **jogador = 4**, **criatura = 1**.
 | 3 | 1.7 | `skillBonus`/`saveBonus`: de número para lista (`2` vira `[2]`), + `skillCols` e `saveCols` (nomes das colunas de bônus). |
 | 4 | 1.9 | + `spellbook` (blocos de magia). O texto livre `spells` continua como está. |
 
-Os plugins 1.8, 1.10, 1.11 e 1.12.x e 1.13.x **não alteraram o formato**. A 1.10 só acrescentou o carimbo informativo `pluginVersion`; a 1.11 (calculadora de PV) não grava nada novo no arquivo.
+Os plugins 1.8, 1.10, 1.11 e 1.12.x, 1.13.x e 1.14.x **não alteraram o formato**. A 1.10 só acrescentou o carimbo informativo `pluginVersion`; a 1.11 (calculadora de PV) não grava nada novo no arquivo.
 
 Ficha de criatura: sem mudança de formato desde a 1.4.
 
@@ -29,3 +29,7 @@ Ficha de criatura: sem mudança de formato desde a 1.4.
 5. Campos desconhecidos (que você acrescentou à mão) são preservados.
 
 O comando **"Migrar todas as fichas do vault para o formato atual"** faz o mesmo em lote e mostra um relatório. Rodar de novo não altera nenhum arquivo.
+
+## Banco de magias
+
+O arquivo `srd-spells.json` tem o próprio número de formato (`format`, hoje 1), separado do formato da ficha. Ele não é gravado dentro das fichas: ao adicionar uma magia do banco, os campos dela são copiados para um bloco de magia da ficha, que continua no formato 4.
