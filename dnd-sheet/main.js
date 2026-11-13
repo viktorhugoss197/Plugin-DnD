@@ -5,7 +5,7 @@ const {
 
 const VIEW_TYPE = "dnd-sheet-view";
 const EXT = "dndsheet";
-const BUILD_VERSION = "1.14.0";            // versão do código (main.js); o manifest.json deve ter o mesmo número
+const BUILD_VERSION = "1.14.5";            // versão do código (main.js); o manifest.json deve ter o mesmo número
 let PLUGIN_VERSION = BUILD_VERSION;
 let PLUGIN_DIR = "";                       // pasta do plugin no vault (para ler srd-spells.json)
 const SRD_FILE = "srd-spells.json";        // arquivo do banco de magias, na pasta do plugin
@@ -2062,7 +2062,7 @@ class AddSpellModal extends Modal {
   constructor(app, have, onAdd, onBlank) {
     super(app);
     this.have = have; this.onAdd = onAdd; this.onBlank = onBlank;
-    this.tab = "bank"; this.q = ""; this.lv = "all"; this.sc = "all"; this.limit = 60; this.open = new Set();
+    this.tab = "bank"; this.q = ""; this.lv = "all"; this.sc = "all"; this.limit = 60; this.expandedRows = new Set();
   }
 
   onOpen() {
@@ -2146,9 +2146,9 @@ class AddSpellModal extends Modal {
   row(list, s, render) {
     const row = list.createDiv({ cls: "dnd-srd-row" });
     const head = row.createDiv({ cls: "dnd-srd-head" });
-    const open = this.open.has(s.n);
+    const open = this.expandedRows.has(s.n);
     head.createEl("button", { cls: "dnd-srd-title", text: `${open ? "▾" : "▸"} ${s.n}` })
-      .addEventListener("click", () => { if (open) this.open.delete(s.n); else this.open.add(s.n); render(); });
+      .addEventListener("click", () => { if (open) this.expandedRows.delete(s.n); else this.expandedRows.add(s.n); render(); });
     head.createSpan({ cls: "dnd-srd-meta", text: `${srdLevelLabel(s.l)} · ${s.s}${s.cc ? " · C" : ""}${s.rt ? " · R" : ""}` });
     const have = this.have.has(s.n.toLowerCase());
     const add = head.createEl("button", { text: have ? "✓ Na ficha" : "Adicionar", cls: have ? "" : "mod-cta" });
