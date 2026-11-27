@@ -1,4 +1,4 @@
-# Ficha de D&D — D&D Database
+# DnD Character Sheet
 
 Plugin para **Obsidian** que transforma fichas de Dungeons & Dragons em documentos editáveis dentro do vault. A proposta do projeto é reunir em um só lugar ferramentas para criar e administrar personagens, criaturas, magias e recursos de jogo, mantendo os dados em arquivos do próprio Obsidian.
 
@@ -26,6 +26,16 @@ O plugin é desenvolvido em português e foi pensado para apoiar tanto a prepara
 - Atualização de modelos mantendo valores atuais, alterações pessoais e recursos removidos pelo jogador.
 - Migração de fichas antigas para o formato atual, preservando os dados existentes.
 
+## Como usar
+
+1. Instale e ative o plugin seguindo as etapas acima.
+2. Abra a paleta de comandos do Obsidian e procure pelos comandos disponibilizados pelo **DnD Character Sheet**.
+3. Use os comandos de criação para iniciar uma ficha de personagem ou uma ficha de criatura.
+4. Edite os campos diretamente na ficha. Os cálculos e as rolagens compatíveis são atualizados pelo plugin.
+5. Para acompanhar magias e recursos, utilize as áreas correspondentes da ficha. Os arquivos gerados permanecem no vault e podem ser organizados normalmente pelo Obsidian.
+
+> Os nomes exatos dos comandos podem variar entre versões. Consulte a paleta de comandos para ver as ações disponíveis na versão instalada.
+
 ## Arquivos utilizados
 
 O plugin cria e utiliza arquivos próprios no vault:
@@ -44,9 +54,10 @@ Os arquivos ficam no vault do usuário e podem ser organizados em pastas como qu
 1. Baixe os arquivos de distribuição do plugin: `manifest.json`, `main.js` e `styles.css`.
 2. Crie a pasta `.obsidian/plugins/dnd-sheet/` dentro do seu vault, caso ela ainda não exista.
 3. Coloque os três arquivos nessa pasta.
-4. Abra **Configurações → Plugins da comunidade**, atualize a lista de plugins instalados e ative **Ficha de D&D**.
+4. Abra **Configurações → Plugins da comunidade**.
+5. Na lista de plugins instalados, localize **DnD Character Sheet** e ative a opção.
 
-> A instalação pela loja de plugins da comunidade do Obsidian ficará disponível quando o projeto for aprovado e listado no catálogo.
+> Quando o plugin estiver disponível no catálogo da Comunidade do Obsidian, também será possível instalá-lo diretamente por **Configurações → Plugins da comunidade → Procurar**.
 
 ## Banco de magias e atribuição
 
