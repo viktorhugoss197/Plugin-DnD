@@ -5,7 +5,7 @@ const {
 
 const VIEW_TYPE = "dnd-sheet-view";
 const EXT = "dndsheet";
-const BUILD_VERSION = "1.15.2";            // versão do código (main.js); o manifest.json deve ter o mesmo número
+const BUILD_VERSION = "1.15.3";            // versão do código (main.js); o manifest.json deve ter o mesmo número
 let PLUGIN_VERSION = BUILD_VERSION;
 const SCHEMA_VERSION = 5;                  // formato da ficha de jogador (.dndsheet)
 const CREATURE_SCHEMA_VERSION = 1;         // formato da ficha de criatura (.dndcreature)
@@ -2113,7 +2113,16 @@ class FloatingSheet {
     const closeBtn = bar.createEl("button", { text: "✕", attr: { "aria-label": "Fechar" } });
     const body = el.createDiv({ cls: "dnd-float-body" });
 
-    minBtn.addEventListener("click", () => el.toggleClass("min", !el.hasClass("min")));
+    minBtn.addEventListener("click", () => {
+      const minimizing = !el.hasClass("min");
+      el.toggleClass("min", minimizing);
+      if (minimizing) {
+        el.style.height = "auto";
+      } else {
+        const savedGeo = p.geo[this.file.path] || geo;
+        el.style.height = (savedGeo.h || geo.h) + "px";
+      }
+    });
     closeBtn.addEventListener("click", () => this.close());
 
     // arrastar pela barra de título
