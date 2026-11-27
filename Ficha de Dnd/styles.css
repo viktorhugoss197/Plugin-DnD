@@ -86,7 +86,7 @@
 .dnd-float-title { flex: 1; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .dnd-float-bar button { padding: 0 8px; height: 22px; background: transparent; box-shadow: none; }
 .dnd-float-body { flex: 1; overflow: auto; }
-.dnd-sheet .dnd-float.min { resize: none; height: auto; min-height: 0; }
+.dnd-float.dnd-float.min { resize: none; height: auto; min-height: 0; }
 .dnd-float.min .dnd-float-body { display: none; }
 
 /* ---------- Ficha de criatura ---------- */
