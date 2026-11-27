@@ -1,7 +1,7 @@
 {
   "id": "dnd-sheet",
   "name": "DnD Character Sheet",
-  "version": "1.15.2",
+  "version": "1.15.3",
   "minAppVersion": "1.4.0",
   "description": "Editable DnD 5e character sheets with automatic ability modifiers and dice rolls.",
   "author": "viktorhugoss197",
