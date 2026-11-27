@@ -1,0 +1,260 @@
+.dnd-sheet { padding: 16px 20px; max-width: 1400px; margin: 0 auto; }
+
+.dnd-sheet input[type="text"],
+.dnd-sheet input[type="number"],
+.dnd-sheet select,
+.dnd-sheet textarea { width: 100%; box-sizing: border-box; }
+.dnd-sheet textarea { resize: vertical; font-family: var(--font-text); }
+
+.dnd-header { margin-bottom: 14px; }
+.dnd-big { font-size: 1.6em; font-weight: 700; }
+
+.dnd-grid { display: grid; gap: 8px; }
+.dnd-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.dnd-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.dnd-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.dnd-grid-5 { grid-template-columns: repeat(5, 1fr); }
+
+.dnd-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 1000px) { .dnd-cols { grid-template-columns: 1fr; } .dnd-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+
+.dnd-section {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px; padding: 10px 12px; margin-bottom: 12px;
+  background: var(--background-secondary);
+}
+.dnd-section h4 { margin: 0 0 8px; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); }
+
+.dnd-field { display: flex; flex-direction: column; gap: 2px; margin-bottom: 6px; }
+.dnd-field label, .dnd-stat label { font-size: 0.75em; color: var(--text-muted); }
+.dnd-check { flex-direction: row; align-items: center; gap: 8px; }
+
+.dnd-stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.dnd-val { font-size: 1.6em; font-weight: 700; color: var(--text-accent); }
+
+.dnd-ability { display: grid; grid-template-columns: 28px 1fr 64px 52px; gap: 8px; align-items: center; margin-bottom: 6px; }
+.dnd-score { text-align: center; }
+.dnd-mod { font-weight: 700; font-size: 1.1em; }
+
+.dnd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+.dnd-mod-sm { min-width: 42px; padding: 2px 6px; font-weight: 600; }
+.dnd-prof { padding: 0 6px; background: transparent; box-shadow: none; font-size: 1.1em; }
+.dnd-hint { font-size: 0.75em; color: var(--text-faint); margin-top: 6px; }
+
+
+.dnd-attack { display: grid; grid-template-columns: 28px 1.4fr 0.6fr 1.4fr 32px; gap: 6px; margin-bottom: 4px; }
+.dnd-attack-head span { font-size: 0.75em; color: var(--text-muted); }
+.dnd-del { padding: 0 6px; }
+
+.dnd-slot { display: grid; grid-template-columns: 50px 1fr 1fr; gap: 6px; align-items: center; margin-bottom: 3px; }
+.dnd-slot-head span { font-size: 0.75em; color: var(--text-muted); }
+
+/* ---------- Modo compacto (janela flutuante e nota) ---------- */
+.dnd-compact { padding: 8px 10px; max-width: none; }
+.dnd-compact .dnd-cols { grid-template-columns: 1fr; }
+.dnd-compact .dnd-grid-4 { grid-template-columns: repeat(2, 1fr); }
+.dnd-compact .dnd-col { display: none; }
+.dnd-compact .dnd-col.active { display: block; }
+.dnd-compact .dnd-big { font-size: 1.2em; }
+
+.dnd-tabs { display: flex; gap: 4px; margin: 8px 0; }
+.dnd-tabs button { flex: 1; }
+.dnd-tabs button.active { background: var(--interactive-accent); color: var(--text-on-accent); }
+
+.dnd-embed { border: 1px solid var(--background-modifier-border); border-radius: 8px; }
+
+/* ---------- Janela flutuante ---------- */
+.dnd-float {
+  position: fixed;
+  display: flex; flex-direction: column;
+  min-width: 340px; min-height: 120px;
+  max-width: 95vw; max-height: 95vh;
+  resize: both; overflow: hidden;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border-hover);
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+.dnd-float-bar {
+  display: flex; align-items: center; gap: 4px;
+  padding: 4px 6px 4px 10px;
+  background: var(--background-secondary-alt, var(--background-secondary));
+  border-bottom: 1px solid var(--background-modifier-border);
+  cursor: grab; user-select: none; touch-action: none;
+}
+.dnd-float-bar:active { cursor: grabbing; }
+.dnd-float-title { flex: 1; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dnd-float-bar button { padding: 0 8px; height: 22px; background: transparent; box-shadow: none; }
+.dnd-float-body { flex: 1; overflow: auto; }
+.dnd-float.min { resize: none; height: auto !important; min-height: 0; }
+.dnd-float.min .dnd-float-body { display: none; }
+
+/* ---------- Ficha de criatura ---------- */
+.dnd-mon-toolbar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+
+.dnd-mon-frame {
+  position: relative;
+  background: #fdf1dc;
+  color: #222;
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: 0.95em;
+  padding: 12px 16px 14px;
+  border: 1px solid #c9ad6a;
+  box-shadow: 0 0 0 3px #e8d5a3, 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+.dnd-mon-img { display: block; max-width: 45%; max-height: 180px; margin: 0 0 8px auto; border-radius: 4px; }
+.dnd-mon-name { margin: 0; color: #7a200d; font-variant: small-caps; font-size: 1.5em; }
+.dnd-mon-sub { font-style: italic; margin-bottom: 2px; }
+.dnd-mon-rule { height: 3px; margin: 6px 0; background: linear-gradient(90deg, #822000, #c0522a 70%, transparent); }
+.dnd-mon-line { margin: 2px 0; line-height: 1.35; }
+.dnd-mon-line strong, .dnd-mon-cr strong { color: #7a200d; }
+.dnd-mon-cr { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+.dnd-mon-hp { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.dnd-mon-hpinput { width: 56px; text-align: center; background: #fff8e8; color: #222; border: 1px solid #c9ad6a; }
+.dnd-mon-quick { display: flex; gap: 4px; margin: 2px 0 4px; flex-wrap: wrap; }
+.dnd-mon-quick input { width: 64px; background: #fff8e8; color: #222; border: 1px solid #c9ad6a; }
+.dnd-mon-quick button { padding: 0 8px; height: 22px; font-size: 0.85em; }
+
+.dnd-mon-abil { width: 100%; border-collapse: collapse; text-align: center; margin: 2px 0; }
+.dnd-mon-abil th { color: #7a200d; font-size: 0.85em; }
+.dnd-mon-abil button { background: transparent; box-shadow: none; color: #222; padding: 0 2px; height: auto; cursor: pointer; }
+.dnd-mon-abil button:hover { color: #822000; text-decoration: underline; }
+
+.dnd-mon-h3 { margin: 10px 0 4px; color: #7a200d; font-variant: small-caps; font-size: 1.2em; border-bottom: 2px solid #822000; }
+.dnd-mon-item { margin: 4px 0; line-height: 1.35; }
+
+.dnd-rollable {
+  display: inline; height: auto; padding: 0 4px; margin: 0 1px;
+  background: rgba(130, 32, 0, 0.12); color: #822000; border: 1px solid rgba(130, 32, 0, 0.35);
+  border-radius: 4px; font: inherit; box-shadow: none; cursor: pointer;
+}
+.dnd-rollable:hover { background: rgba(130, 32, 0, 0.25); }
+
+.dnd-mon-notes { margin-top: 10px; white-space: pre-wrap; }
+
+.dnd-mon-edit-item { border: 1px solid var(--background-modifier-border); border-radius: 6px; padding: 6px; margin-bottom: 6px; }
+.dnd-mon-edit-head { display: grid; grid-template-columns: 1fr auto auto auto; gap: 4px; margin-bottom: 4px; }
+.dnd-mon-edit-item textarea { width: 100%; box-sizing: border-box; resize: vertical; }
+
+/* ---------- Janela "Inserir ficha de D&D" ---------- */
+.dnd-pick { display: flex; gap: 8px; margin-top: 10px; }
+
+/* ---------- Estrela (fixar no resumo) e bônus extra ---------- */
+.dnd-star { padding: 0 4px; height: auto; background: transparent; box-shadow: none; color: var(--text-faint); font-size: 1.1em; cursor: pointer; }
+.dnd-star.on { color: #e0a800; }
+.dnd-star:hover { color: #e0a800; }
+.dnd-extra { width: 52px !important; text-align: center; flex: none; }
+
+/* ---------- Ficha resumida ---------- */
+.dnd-summary { padding: 2px 0; }
+.dnd-sum-name { font-size: 1.4em; font-weight: 700; }
+.dnd-sum-sub { color: var(--text-muted); margin-bottom: 8px; }
+.dnd-sum-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 10px; }
+.dnd-sum-chip { text-align: center; background: var(--background-secondary); border: 1px solid var(--background-modifier-border); border-radius: 8px; padding: 4px 2px; }
+.dnd-sum-label { font-size: 0.7em; color: var(--text-muted); }
+.dnd-sum-val { font-size: 1.2em; font-weight: 700; color: var(--text-accent); overflow-wrap: anywhere; }
+.dnd-sum-btn { height: auto; padding: 2px 8px; font-weight: 600; cursor: pointer; }
+.dnd-sum-btn.big { font-size: 1em; }
+.dnd-sum-num { width: 64px !important; text-align: center; flex: none; }
+.dnd-sum-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.dnd-sum-attack { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+.dnd-sum-aname { flex: 1; min-width: 90px; font-weight: 600; }
+.dnd-sum-lvl { min-width: 24px; font-weight: 600; }
+.dnd-pips { display: flex; gap: 2px; flex-wrap: wrap; }
+.dnd-pip { height: auto; padding: 0 3px; background: transparent; box-shadow: none; font-size: 1.2em; cursor: pointer; color: var(--text-accent); }
+.dnd-pip.used { color: var(--text-faint); }
+
+/* ---------- Colunas de bônus extra (perícias e resistências) ---------- */
+.dnd-row .dnd-star { width: 28px; flex: none; }
+.dnd-row .dnd-prof { width: 34px; flex: none; }
+.dnd-row .dnd-mod-sm { width: 42px; flex: none; }
+.dnd-row input[type="checkbox"] { flex: none; }
+.dnd-row > span { white-space: nowrap; }
+.dnd-section { overflow-x: auto; }
+.dnd-cols-head { align-items: flex-end; margin-bottom: 2px; }
+.dnd-hd-spacer { flex: none; }
+.dnd-col-label { position: relative; width: 52px; flex: none; }
+.dnd-col-label input { width: 100% !important; height: 20px; padding: 0 2px; font-size: 0.7em; text-align: center; }
+.dnd-col-del { position: absolute; top: -9px; right: -7px; width: 15px; height: 15px; padding: 0; font-size: 9px; line-height: 1; border-radius: 50%; }
+.dnd-col-add { width: 28px; height: 24px; padding: 0; font-weight: 700; flex: none; }
+
+/* ---------- Versão visível e controle de colunas ---------- */
+.dnd-version { margin-left: auto; align-self: center; font-size: 0.7em; color: var(--text-faint); }
+.dnd-cols-ctl { margin-bottom: 4px; font-size: 0.85em; color: var(--text-muted); }
+.dnd-cols-ctl input { width: 56px !important; text-align: center; flex: none; }
+.dnd-col-add { width: auto; padding: 0 8px; }
+
+/* ---------- Grimório: blocos de magia ---------- */
+.dnd-sb { margin-top: 8px; }
+.dnd-sb-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+.dnd-sb-bar button { height: auto; padding: 2px 10px; }
+.dnd-sb-group { margin: 10px 0 4px; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); border-bottom: 1px solid var(--background-modifier-border); }
+
+.dnd-spell { border: 1px solid var(--background-modifier-border); border-left: 3px solid var(--interactive-accent); border-radius: 6px; background: var(--background-primary); margin-bottom: 5px; }
+.dnd-spell.open { background: var(--background-primary-alt, var(--background-primary)); }
+.dnd-spell-head { display: flex; align-items: center; gap: 6px; padding: 3px 6px; flex-wrap: wrap; }
+.dnd-spell-prep { display: inline-flex; align-items: center; gap: 3px; font-size: 0.8em; color: var(--text-muted); flex: none; }
+.dnd-spell-title { flex: 1; min-width: 110px; text-align: left; height: auto; padding: 2px 4px; background: transparent; box-shadow: none; font-weight: 600; cursor: pointer; }
+.dnd-spell-meta { font-size: 0.75em; color: var(--text-muted); }
+.dnd-spell-cast { height: auto; padding: 2px 8px; font-size: 0.8em; cursor: pointer; }
+.dnd-spell-body { padding: 4px 8px 8px; border-top: 1px solid var(--background-modifier-border); }
+.dnd-spell-atk { margin: 4px 0; }
+.dnd-spell-preview { margin-top: 6px; padding: 6px 8px; border-radius: 6px; background: var(--background-secondary); }
+.dnd-spell-sub { font-style: italic; color: var(--text-muted); margin-bottom: 2px; }
+.dnd-spell-fact { font-size: 0.9em; }
+.dnd-spell-text { margin-top: 4px; line-height: 1.4; }
+.dnd-spell-del { margin-top: 8px; height: auto; padding: 2px 10px; color: var(--text-error); }
+.dnd-spell-preview .dnd-rollable, .dnd-spell-body .dnd-rollable { background: var(--background-modifier-hover); color: var(--text-accent); border-color: var(--background-modifier-border); }
+
+
+/* ---------- Calculadora de PV ---------- */
+.dnd-calc { margin-top: 6px; }
+.dnd-calc-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.dnd-calc-input { flex: 1; min-width: 0; font-variant-numeric: tabular-nums; }
+.dnd-calc-out { min-width: 64px; font-weight: 700; color: var(--text-accent); white-space: nowrap; }
+.dnd-calc-btns { display: flex; flex-wrap: wrap; gap: 4px; }
+.dnd-calc-btns button { height: auto; padding: 2px 10px; cursor: pointer; }
+.dnd-calc-log { margin-top: 4px; font-size: 0.8em; color: var(--text-muted); }
+
+/* ---------- Aviso quando a ficha não pode ser desenhada ---------- */
+.dnd-error { padding: 10px 12px; margin: 8px 0; border: 1px solid var(--text-error); border-radius: 6px; color: var(--text-error); }
+
+/* ---------- Janela "Adicionar magia" (banco do SRD) ---------- */
+.dnd-addspell { width: min(720px, 94vw); }
+.dnd-srd-filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.dnd-srd-filters input { flex: 1 1 180px; min-width: 0; }
+.dnd-srd-list { max-height: 52vh; overflow-y: auto; border: 1px solid var(--background-modifier-border); border-radius: 6px; margin-bottom: 6px; }
+.dnd-srd-row { border-bottom: 1px solid var(--background-modifier-border); padding: 4px 8px; }
+.dnd-srd-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.dnd-srd-title { flex: 1; min-width: 140px; text-align: left; height: auto; padding: 2px 4px; background: transparent; box-shadow: none; font-weight: 600; cursor: pointer; }
+.dnd-srd-meta { font-size: 0.78em; color: var(--text-muted); }
+.dnd-srd-body { padding: 4px 6px 8px; }
+.dnd-srd-text { margin-top: 4px; line-height: 1.4; white-space: pre-wrap; }
+
+/* ---------- Recursos de Classe ---------- */
+.dnd-res-toolbar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.dnd-res-toolbar button { height: auto; padding: 2px 10px; }
+.dnd-res-list { display: flex; flex-direction: column; gap: 6px; }
+.dnd-res { border: 1px solid var(--background-modifier-border); border-left: 3px solid var(--interactive-accent); border-radius: 6px; background: var(--background-primary); padding: 4px 6px; }
+.dnd-res.on { border-left-color: #e0a800; background: var(--background-modifier-hover); }
+.dnd-res-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.dnd-res-icon { font-size: 1.1em; }
+.dnd-res-name { flex: 1; min-width: 90px; font-weight: 600; }
+.dnd-res-src { font-size: 0.72em; color: var(--text-muted); border: 1px solid var(--background-modifier-border); border-radius: 10px; padding: 0 6px; }
+.dnd-res-btn { height: auto; padding: 0 8px; cursor: pointer; }
+.dnd-res-body { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.dnd-res-val { min-width: 48px; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--text-accent); }
+.dnd-res-die { font-size: 0.8em; font-weight: 700; color: var(--text-muted); }
+.dnd-res-amt { width: 52px !important; text-align: center; flex: none; }
+.dnd-res-bar { height: 5px; margin-top: 4px; border-radius: 3px; background: var(--background-modifier-border); overflow: hidden; }
+.dnd-res-fill { height: 100%; background: var(--interactive-accent); }
+.dnd-res-toggle { height: auto; padding: 2px 12px; font-weight: 700; cursor: pointer; }
+.dnd-res-toggle.on { background: #e0a800; color: #222; }
+.dnd-res-detail { margin-top: 6px; padding-top: 4px; border-top: 1px solid var(--background-modifier-border); font-size: 0.9em; }
+.dnd-res-palette { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 4px; }
+.dnd-res-palette button { height: auto; padding: 0 4px; }
+.dnd-res-editor { width: min(560px, 94vw); }
+.dnd-tpl-list { margin: 8px 0; }
+.dnd-tpl-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; padding: 4px 0; border-bottom: 1px solid var(--background-modifier-border); }
+.dnd-tpl-name { flex: 1; min-width: 140px; font-weight: 600; }
