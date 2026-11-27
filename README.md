@@ -74,6 +74,10 @@ A licença CC BY 4.0 permite compartilhar e adaptar o material licenciado, inclu
 
 **Nota sobre a tradução e a organização do banco:** a atribuição acima cobre o material do SRD 5.1. Ela não substitui os créditos ou a licença de uma tradução, de uma compilação ou da estrutura de dados criada por terceiros. O repositório ainda precisa identificar e confirmar a origem e os termos de uso específicos desses elementos antes de afirmar que todo o banco de magias está integralmente liberado para redistribuição.
 
+## Licença do código do plugin
+
+O código original do plugin é disponibilizado sob a licença **MIT** (consulte o arquivo [LICENSE](LICENSE)). Essa licença não altera os termos aplicáveis a conteúdos de terceiros, incluindo materiais do SRD, traduções, bancos de magias e compilações externas. Esses materiais continuam sujeitos às respectivas licenças e exigências de atribuição, conforme explicado na seção anterior.
+
 ## Compatibilidade e independência
 
 Este é um projeto comunitário independente. Não é afiliado, patrocinado ou endossado pela Wizards of the Coast. A atribuição ao SRD reconhece somente o material disponibilizado sob a licença indicada; não representa parceria ou aprovação da empresa.
