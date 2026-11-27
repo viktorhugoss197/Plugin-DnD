@@ -28,13 +28,16 @@ O plugin é desenvolvido em português e foi pensado para apoiar tanto a prepara
 
 ## Como usar
 
-1. Instale e ative o plugin seguindo as etapas acima.
-2. Abra a paleta de comandos do Obsidian e procure pelos comandos disponibilizados pelo **DnD Character Sheet**.
-3. Use os comandos de criação para iniciar uma ficha de personagem ou uma ficha de criatura.
-4. Edite os campos diretamente na ficha. Os cálculos e as rolagens compatíveis são atualizados pelo plugin.
-5. Para acompanhar magias e recursos, utilize as áreas correspondentes da ficha. Os arquivos gerados permanecem no vault e podem ser organizados normalmente pelo Obsidian.
+Abra a paleta de comandos do Obsidian com **Ctrl+P** (ou **Cmd+P** no macOS) e pesquise pelo nome do comando:
 
-> Os nomes exatos dos comandos podem variar entre versões. Consulte a paleta de comandos para ver as ações disponíveis na versão instalada.
+- **Criar nova ficha de D&D:** cria uma ficha de personagem.
+- **Criar nova ficha de criatura:** cria uma ficha de criatura.
+- **Criar modelo de recursos:** inicia um modelo reutilizável de recursos.
+- **Criar ficha a partir de um modelo de recursos:** cria uma ficha usando um modelo salvo.
+- **Migrar todas as fichas do vault para o formato atual:** atualiza fichas existentes para o formato reconhecido pela versão instalada. Faça uma cópia de segurança do vault antes de executar migrações em lote.
+- **Abrir ficha em janela flutuante:** abre uma ficha em uma janela independente, quando aplicável.
+
+Depois de criar uma ficha, edite os campos diretamente nela. Os modificadores de atributos, bônus e rolagens compatíveis são calculados pelo plugin. As áreas de magias e recursos permitem acompanhar as informações relevantes durante o jogo. Os arquivos gerados permanecem no vault e podem ser organizados como qualquer outro arquivo do Obsidian.
 
 ## Arquivos utilizados
 
